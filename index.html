@@ -1,469 +1,687 @@
-<!DOCTYPE HTML>
-<!--
-    Strata by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Khalid Salman's Portfolio</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Khalid Salman — AI Research Engineer</title>
+    <meta name="description"
+        content="AI Research Engineer working across the full LLM lifecycle: distributed training, distillation, evaluation and production serving. Co-led training of the UK's first specialised financial-services LLM." />
+    <meta name="author" content="Khalid Salman" />
+    <link rel="canonical" href="https://khalit7.github.io/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Khalid Salman — AI Research Engineer" />
+    <meta property="og:description"
+        content="Full LLM lifecycle: distributed training, distillation, evaluation and production serving. Co-led training of the UK's first specialised financial-services LLM." />
+    <meta property="og:url" content="https://khalit7.github.io/" />
+    <meta property="og:image" content="https://khalit7.github.io/images/pp.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Khalid Salman — AI Research Engineer" />
+    <meta name="twitter:description"
+        content="Full LLM lifecycle: distributed training, distillation, evaluation and production serving." />
+    <meta name="twitter:image" content="https://khalit7.github.io/images/pp.jpg" />
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-soft: #f6f7f9;
+            --fg: #1c1f24;
+            --fg-muted: #5b626d;
+            --accent: #1f3a5f;
+            --accent-soft: #e8edf4;
+            --rule: #e3e6ea;
+            --radius: 10px;
+            --measure: 62rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #14171b;
+                --bg-soft: #1b1f25;
+                --fg: #e8eaed;
+                --fg-muted: #a3abb6;
+                --accent: #8ab4e8;
+                --accent-soft: #22303f;
+                --rule: #2c323a;
+            }
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0 1.25rem 4rem;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+                Arial, "Noto Sans", sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            max-width: var(--measure);
+            margin: 0 auto;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.25;
+            margin: 0;
+            font-weight: 650;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--fg-muted);
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 1.75rem;
+        }
+
+        p {
+            margin: 0 0 1rem;
+        }
+
+        /* ---------- header ---------- */
+
+        header {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 3.5rem 0 2rem;
+        }
+
+        header img {
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex: none;
+            border: 1px solid var(--rule);
+        }
+
+        .identity h1 {
+            font-size: clamp(1.9rem, 5vw, 2.5rem);
+        }
+
+        .identity .role {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 0.35rem;
+        }
+
+        .lede {
+            font-size: 1.12rem;
+            max-width: 46rem;
+            margin-bottom: 1rem;
+        }
+
+        .aside-note {
+            color: var(--fg-muted);
+            font-size: 0.95rem;
+            max-width: 46rem;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0;
+            margin: 1.5rem 0 0;
+        }
+
+        .links a {
+            display: inline-block;
+            padding: 0.4rem 0.85rem;
+            border: 1px solid var(--rule);
+            border-radius: 999px;
+            background: var(--bg-soft);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 550;
+        }
+
+        .links a:hover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* ---------- sections ---------- */
+
+        section {
+            padding-top: 3rem;
+        }
+
+        .job {
+            margin-bottom: 2.25rem;
+        }
+
+        .job-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .job-head h3 {
+            font-size: 1.15rem;
+        }
+
+        .job-head .when {
+            color: var(--fg-muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .job ul {
+            margin: 0.75rem 0 0;
+            padding-left: 1.15rem;
+        }
+
+        .job li {
+            margin-bottom: 0.6rem;
+        }
+
+        .job li strong {
+            font-weight: 600;
+        }
+
+        .toolkit {
+            background: var(--bg-soft);
+            border: 1px solid var(--rule);
+            border-radius: var(--radius);
+            padding: 1rem 1.15rem;
+            font-size: 0.97rem;
+            color: var(--fg-muted);
+        }
+
+        .toolkit strong {
+            color: var(--fg);
+            font-weight: 600;
+        }
+
+        /* ---------- projects ---------- */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
+            gap: 1.75rem;
+            align-items: start;
+        }
+
+        /* the two current, code-only projects lead the section */
+        .featured {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+            gap: 1.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .featured article.card {
+            border-left: 3px solid var(--accent);
+        }
+
+        article.card {
+            border: 1px solid var(--rule);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--bg-soft);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .media {
+            aspect-ratio: 16 / 9;
+            background: var(--rule);
+        }
+
+        .media iframe,
+        .media img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.1rem 1.25rem 1.35rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            flex: 1;
+        }
+
+        .card-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .card-body p {
+            margin: 0;
+            font-size: 0.97rem;
+            color: var(--fg-muted);
+        }
+
+        .card-body .repo {
+            margin-top: auto;
+            font-size: 0.93rem;
+            font-weight: 550;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            font-weight: 650;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 4px;
+            padding: 0.1rem 0.45rem;
+            vertical-align: 2px;
+            margin-left: 0.4rem;
+        }
+
+        /* ---------- misc ---------- */
+
+        .plain {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .plain li {
+            padding-left: 1.15rem;
+            position: relative;
+            margin-bottom: 0.85rem;
+        }
+
+        .plain li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        footer {
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--rule);
+            color: var(--fg-muted);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 34rem) {
+            header {
+                padding-top: 2.25rem;
+            }
+
+            header img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
 </head>
 
-<body class="is-preload">
+<body>
+    <div class="wrap">
 
-    <!-- Header -->
-    <header id="header">
-        <div class="inner">
-            <center>
-                <a href="#" class="image avatar"><img src="images/pp.jpg" alt="Avatar" /></a>
-                <center/>
-                <h1>
-                    <strong> <center>Khalid Salman </center></strong> </h2>
-                    <center>Machine Learning Engineer by day,
-                        <center/>
-                        <center>Competitive programmer + side project maniac by night.
-                            <center/>
-        </div>
-    </header>
-
-    <!-- Main -->
-    <div id="main">
-
-        <!-- One -->
-        <section id="one">
-            <header class="major">
-                <h2>Overview</h2>
-            </header>
-            <p>
-                The page is mainly intended to showcase some of the "side coding tasks" I do for learning/fun.
-            </p>
-        </section>
-
-        <!-- Two -->
-        <section id="two">
-            <h2>Projects</h2>
-            <div class="row">
-                <article class="col-6 col-12-xsmall work-item">
-                    <iframe src="https://www.youtube.com/embed/8XXXRFbT3Uc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Gender and Number Identification Audio System</h3>
-                    <p> Used pytorch to train a multi-task Resnet-34 network to identify the gender and the number spoken by the speeker. The system is triggered using the trigger word "on" and then it classifies the gender of the speeker (male or female)
-                        as well as the number spoken by the speeker (from 1 to 9). <br> The trigger word detection part of the system was trained on SpeechCommand Dataset, while the gender and number identification part was trained on Speech MNIST.
-                        <br>
-                        <a href="https://github.com/khalit7/AutomaticSpeechGenderAndNumberDetection.git"> source code </a>
-                    </p>
-                </article>
-                <article class="col-6 col-12-xsmall work-item">
-                    <iframe src="https://www.youtube.com/embed/CSIrqq3mP-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Deep Q network for Atari Breakout game</h3>
-                    <p> Used TensorFlow and the Q learning algorithm to train a deep Q network that makes an agent learn to play the game Atari Breakput. <br>
-                        <a href="https://github.com/khalit7/Deep_Q_Network">source code</a>
-                    </p>
-                </article>
-                <article class="col-6 col-12-xsmall work-item">
-                    <a href="images/projects_Assets/SRCNN.PNG" class="image fit thumb"><img src="images/projects_Assets/SRCNN.PNG" alt="" /></a>
-                    <h3>SRCNN</h3>
-                    <p>Used PyTorch to implement a very simple super resolution model named SRCNN that was first proposed in <a href="https://arxiv.org/abs/1501.00092">"Image super resolution using deep convolutional networks" </a>. Then critically analysed
-                        various state of the art approaches that address the super resolution problem. <a href="https://github.com/khalit7/Super_Resolution_CNN">code and critical analysis</a>.
-                    </p>
-                </article>
-                <article class="col-6 col-12-xsmall work-item">
-                    <iframe src="https://www.youtube.com/embed/k_F88lTBiuw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>BomberMan AI agent</h3>
-                    <p>A hybrid AI agent that uses both rule-based actions and MCTS algorithm to play the game BomberMan using the Pommerman framework (the java implementation of the game).
-                        <br> My player is the green one in the video,notice how it focuses on collecting power ups without dying inorder to get to the end game as the strongest player. When playing against MCTS (the best agent in the Pommerman framework),
-                        my player was able to get a 48.2% win rate, 25% draw rate, while losing 26.8%.
-                        <br>
-                        <a href="https://github.com/khalit7/PommermanCustomAgent">source code</a>
-                    </p>
-                </article>
-                <article class="col-6 col-12-xsmall work-item">
-                    <iframe src="https://www.youtube.com/embed/g3M1h5bVmNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Assembly Pong Game</h3>
-                    <p>This is a pong game that is developed entirly using assembly language in NASM syntax. The game is booted in an virtual machine without an operating system. This means that the assembly code is responsible of taking input from the users
-                        (dealing with keyboard intrrupts) and drawing to the screen (as an output device). <br> The game supports two player modes in which two players play against each other. The first uses "Q" and "A" to move the pads up and down, while
-                        the second uses "arrow up" and "arrow down" to control the pad. (watch first match in the video)
-                        <br> It also supports one player mode in which the player plays against hard coded rules (the second match in the video).<br> notice how good the PC player is :)
-                        <br>
-                        <a href="https://github.com/de7miii/Assembly_Project"> source code </a>
-                    </p>
-                </article>
-                <article class="col-6 col-12-xsmall work-item">
-                    <iframe src="https://www.youtube.com/embed/WeXNcg6OwJI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Lazy Resturant Game</h3>
-                    <p>A simple resturant game developed using unity game engine and C# where the player controlls the waiter to serve the customers. Main reason behind doing this mini-game is to play around with Search algorithms namely (BFS, DFS , and A*). the final game uses BFS to search for the fastest route the waiter should take to get to the destination.
-                    </p>
-                </article>
+        <header>
+            <img src="images/pp.jpg" alt="Khalid Salman" />
+            <div class="identity">
+                <h1>Khalid Salman</h1>
+                <div class="role">AI Research Engineer</div>
             </div>
-        </section>
+        </header>
 
-        <!-- Three -->
-        <section id="three">
-            <h2>Get In Touch</h2>
-            <p>If you have any questions about how to reproduce the projects I've done, or any queries at all, please feel free to contact me.
+        <p class="lede">
+            I work across the full LLM lifecycle: distributed training, distillation, evaluation and
+            production serving. I co-led training of the UK's first specialised financial-services
+            LLM, and I build the evaluation systems that decide whether a model is fit to ship.
+        </p>
+        <p class="aside-note">
+            Competitive programmer and side-project maniac by night. I built a dual RTX&nbsp;5090
+            workstation so the experiments can run at home.
+        </p>
 
-            </p>
-            <div class="row">
-                <div class="col-4 col-12-small">
-                    <ul class="labeled-icons">
-                        <li>
-                            <h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-                            NW10 8RB<br /> Alric Avenue<br /> UK,London
-                        </li>
-                        <li>
-                            <h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-                            +447708806687
-                        </li>
-                        <li>
-                            <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-                            <a href="mailto:khalidsulman777@gmail.com">khalidsulman777</a>
-                        </li>
-                    </ul>
+        <ul class="links">
+            <li><a href="https://github.com/khalit7">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/khalit7/">LinkedIn</a></li>
+            <li><a href="mailto:khalidsulman777@gmail.com">Email</a></li>
+        </ul>
+
+        <!-- ============ Work ============ -->
+        <section id="work">
+            <h2>Work</h2>
+
+            <div class="job">
+                <div class="job-head">
+                    <h3>Aveni &mdash; AI Research Engineer</h3>
+                    <span class="when">Aug 2022 &ndash; present · Edinburgh (remote)</span>
                 </div>
+                <ul>
+                    <li>
+                        <strong>Co-led training of the UK's first specialised financial-services
+                            LLM</strong> ("finllm"), fine-tuning and distillation up to a 22B
+                        mixture-of-experts with distributed multi-node training (FSDP-v2, DeepSpeed
+                        ZeRO, bf16, flash-attention). The distilled models match or exceed much
+                        larger general-purpose models on in-domain tasks.
+                    </li>
+                    <li>
+                        <strong>Built the evaluation, benchmarking and regression harness</strong>
+                        that gates every model change before it ships, defining what "failure" looks
+                        like and catching regressions across model versions. It is what cleared
+                        in-house models to replace frontier-API models in production.
+                    </li>
+                    <li>
+                        <strong>Stress-tested our own models adversarially</strong>, using AI judges
+                        to probe whether the system could be caught failing. It showed the method
+                        then in use did not hold up, and surfaced a flaw in the evaluation itself
+                        that had been flattering every result.
+                    </li>
+                    <li>
+                        <strong>Built and own the core of a production platform serving 825
+                            models</strong> that flag problem behaviour in customer conversations for
+                        10+ major UK financial institutions, designed so a new detector ships as
+                        configuration rather than code.
+                    </li>
+                    <li>
+                        <strong>Designed and built the anonymisation pipeline</strong> that strips
+                        personal data from call transcripts and swaps in realistic stand-ins,
+                        unlocking billions of production tokens for training.
+                    </li>
+                    <li>
+                        <strong>Authored the instruction-fine-tuning pipeline</strong> (LoRA /
+                        QLoRA) and contributed to the alignment stages that follow it: DPO / GRPO
+                        preference tuning, and the human-in-the-loop system that gathers the
+                        feedback those methods learn from.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-head">
+                    <h3>Profusion &mdash; Data Science Intern</h3>
+                    <span class="when">Jun &ndash; Aug 2022 · London</span>
+                </div>
+                <ul>
+                    <li>
+                        Built an LSTM time-series model for inventory optimisation, owning
+                        preprocessing, visualisation and modelling end to end. The client adopted it.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-head">
+                    <h3>249Startups &mdash; Software Engineer</h3>
+                    <span class="when">Oct 2020 &ndash; Sep 2021 · Khartoum</span>
+                </div>
+                <ul>
+                    <li>
+                        Built full-stack tools for local startups, and prototyped a points-based
+                        communication platform that was adopted as one of the company's core
+                        products.
+                    </li>
+                </ul>
+            </div>
+
+            <p class="toolkit">
+                <strong>Toolkit.</strong> PyTorch · Hugging Face · vLLM · FSDP-v2 / DeepSpeed ZeRO ·
+                LoRA / QLoRA · DPO / GRPO · Axolotl · MLflow / Weights&nbsp;&amp;&nbsp;Biases ·
+                AWS (SageMaker, Lambda, Bedrock) · Terraform · SLURM · Docker · Python · C++ ·
+                familiar with JAX
+            </p>
+        </section>
+
+        <!-- ============ Education ============ -->
+        <section id="education">
+            <h2>Education</h2>
+            <ul class="plain">
+                <li>
+                    <strong>MSc Artificial Intelligence &amp; Robotics</strong>, Queen Mary
+                    University of London (2021&ndash;2022) &mdash; graduated 1st in class, above 90%
+                    in five of eight modules.
+                </li>
+                <li>
+                    <strong>BSc Electrical &amp; Electronics Engineering</strong> (Software
+                    Engineering major), University of Khartoum (2014&ndash;2020) &mdash; 4th in
+                    class, with "Academic Excellence" and "Best Graduation Thesis" awards for work
+                    on conditional GANs for sketch-to-image translation.
+                </li>
+            </ul>
+        </section>
+
+        <!-- ============ Projects ============ -->
+        <section id="projects">
+            <h2>Selected projects</h2>
+
+            <div class="featured">
+
+                <article class="card">
+                    <div class="card-body">
+                        <h3>sudani_lm <span class="tag">in progress</span></h3>
+                        <p>
+                            A language model for Sudanese Arabic, trained from scratch. Trains its
+                            own tokenizer, pretrains a decoder-only transformer (4 layers, 512-dim,
+                            8 heads, 1k context) on Arabic text, then finetunes on Sudanese dialect
+                            chat. Config-driven runs with pluggable model and dataset classes,
+                            MMLU checks and temperature-swept generation samples during training.
+                        </p>
+                        <p class="repo"><a href="https://github.com/khalit7/sudani_lm">Repository
+                                &rarr;</a></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-body">
+                        <h3>BERT from scratch</h3>
+                        <p>
+                            A PyTorch implementation of BERT pretraining and finetuning, written to
+                            understand the architecture and the masked-language-modelling objective
+                            from the ground up rather than calling into a library.
+                        </p>
+                        <p class="repo"><a href="https://github.com/khalit7/BERT">Repository
+                                &rarr;</a></p>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="grid">
+
+                <article class="card">
+                    <div class="media">
+                        <iframe src="https://www.youtube-nocookie.com/embed/8XXXRFbT3Uc"
+                            title="Gender and number identification audio system demo"
+                            loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Speech gender and number identification</h3>
+                        <p>
+                            A multi-task ResNet-34 that wakes on the trigger word "on", then
+                            classifies the speaker's gender and the digit (1&ndash;9) they spoke.
+                            Trigger-word detection trained on SpeechCommands, the classification
+                            heads on Speech-MNIST.
+                        </p>
+                        <p class="repo"><a
+                                href="https://github.com/khalit7/AutomaticSpeechGenderAndNumberDetection">Repository
+                                &rarr;</a></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="media">
+                        <img src="images/projects_Assets/SRCNN.PNG"
+                            alt="Super-resolution output from the SRCNN model" loading="lazy" />
+                    </div>
+                    <div class="card-body">
+                        <h3>SRCNN &mdash; super resolution</h3>
+                        <p>
+                            A PyTorch implementation of the SRCNN super-resolution model from
+                            <a href="https://arxiv.org/abs/1501.00092">Dong et al. (2015)</a>,
+                            alongside a critical analysis of how later state-of-the-art approaches
+                            attack the same problem.
+                        </p>
+                        <p class="repo"><a
+                                href="https://github.com/khalit7/Super_Resolution_CNN">Repository
+                                &rarr;</a></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="media">
+                        <iframe src="https://www.youtube-nocookie.com/embed/k_F88lTBiuw"
+                            title="Pommerman agent gameplay" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pommerman agent (MCTS + rules)</h3>
+                        <p>
+                            A hybrid agent for Pommerman combining rule-based play with Monte Carlo
+                            tree search. Against the framework's strongest built-in agent it wins
+                            48.2% and draws 25% &mdash; it plays for power-ups and survival, so it
+                            reaches the endgame as the strongest player.
+                        </p>
+                        <p class="repo"><a
+                                href="https://github.com/khalit7/PommermanCustomAgent">Repository
+                                &rarr;</a></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="media">
+                        <iframe src="https://www.youtube-nocookie.com/embed/CSIrqq3mP-w"
+                            title="Deep Q-network playing Atari Breakout" loading="lazy"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Deep Q-network &mdash; Atari Breakout</h3>
+                        <p>
+                            A deep Q-network trained with Q-learning to play Atari Breakout from
+                            pixels, built to work through value-based reinforcement learning
+                            hands-on.
+                        </p>
+                        <p class="repo"><a href="https://github.com/khalit7/Deep_Q_Network">Repository
+                                &rarr;</a></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="media">
+                        <iframe src="https://www.youtube-nocookie.com/embed/g3M1h5bVmNo"
+                            title="Pong written in assembly, booting without an operating system"
+                            loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pong on bare metal, in assembly</h3>
+                        <p>
+                            Pong written entirely in NASM assembly and booted in a virtual machine
+                            with no operating system, so the code handles keyboard interrupts and
+                            draws to the screen itself. Two-player and one-player modes.
+                        </p>
+                        <p class="repo"><a href="https://github.com/de7miii/Assembly_Project">Repository
+                                &rarr;</a></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="media">
+                        <iframe src="https://www.youtube-nocookie.com/embed/WeXNcg6OwJI"
+                            title="Lazy Restaurant game demo" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Lazy Restaurant</h3>
+                        <p>
+                            A small Unity game built as an excuse to compare search algorithms
+                            (BFS, DFS and A*) on a live grid. The shipped version routes the waiter
+                            with BFS.
+                        </p>
+                    </div>
+                </article>
+
             </div>
         </section>
 
-        <!-- Four -->
-        <!--
-                    <section id="four">
-                        <h2>Elements</h2>
+        <!-- ============ Community ============ -->
+        <section id="community">
+            <h2>Community &amp; competitions</h2>
+            <ul class="plain">
+                <li>
+                    <strong>IndabaX Sudan</strong> &mdash; organiser (2019, 2021, 2022) of Sudan's
+                    largest AI conference. Gave a "Mathematics for Machine Learning" talk and
+                    mentored 150+ attendees through hands-on sessions and a careers panel.
+                </li>
+                <li>
+                    <strong>Deep Learning Indaba</strong> &mdash; participant in Kenya (2019) and
+                    Tunisia (2022); brought the learnings and connections back to Sudan as IndabaX.
+                </li>
+                <li>
+                    <strong>IEEEXtreme</strong> &mdash; 24-hour global programming contest; peak
+                    ranking 248 of 5,000+ teams worldwide, 2nd in Sudan. Still competing on
+                    Codeforces in C++.
+                </li>
+            </ul>
+        </section>
 
-                        <section>
-                            <h4>Text</h4>
-                            <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-                            This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-                            This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-                            <hr />
-                            <header>
-                                <h4>Heading with a Subtitle</h4>
-                                <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-                            </header>
-                            <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-                            <header>
-                                <h5>Heading with a Subtitle</h5>
-                                <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-                            </header>
-                            <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-                            <hr />
-                            <h2>Heading Level 2</h2>
-                            <h3>Heading Level 3</h3>
-                            <h4>Heading Level 4</h4>
-                            <h5>Heading Level 5</h5>
-                            <h6>Heading Level 6</h6>
-                            <hr />
-                            <h5>Blockquote</h5>
-                            <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-                            <h5>Preformatted</h5>
-                            <pre><code>i = 0;
+        <!-- ============ Contact ============ -->
+        <section id="contact">
+            <h2>Get in touch</h2>
+            <p>
+                Happy to talk about LLM training, distillation, evaluation, or how any of the
+                projects above were built.
+            </p>
+            <ul class="links">
+                <li><a href="mailto:khalidsulman777@gmail.com">khalidsulman777@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/khalit7/">linkedin.com/in/khalit7</a></li>
+                <li><a href="https://github.com/khalit7">github.com/khalit7</a></li>
+            </ul>
+        </section>
 
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-                        </section>
-
-                        <section>
-                            <h4>Lists</h4>
-                            <div class="row">
-                                <div class="col-6 col-12-xsmall">
-                                    <h5>Unordered</h5>
-                                    <ul>
-                                        <li>Dolor pulvinar etiam magna etiam.</li>
-                                        <li>Sagittis adipiscing lorem eleifend.</li>
-                                        <li>Felis enim feugiat dolore viverra.</li>
-                                    </ul>
-                                    <h5>Alternate</h5>
-                                    <ul class="alt">
-                                        <li>Dolor pulvinar etiam magna etiam.</li>
-                                        <li>Sagittis adipiscing lorem eleifend.</li>
-                                        <li>Felis enim feugiat dolore viverra.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-12-xsmall">
-                                    <h5>Ordered</h5>
-                                    <ol>
-                                        <li>Dolor pulvinar etiam magna etiam.</li>
-                                        <li>Etiam vel felis at lorem sed viverra.</li>
-                                        <li>Felis enim feugiat dolore viverra.</li>
-                                        <li>Dolor pulvinar etiam magna etiam.</li>
-                                        <li>Etiam vel felis at lorem sed viverra.</li>
-                                        <li>Felis enim feugiat dolore viverra.</li>
-                                    </ol>
-                                    <h5>Icons</h5>
-                                    <ul class="icons">
-                                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                                        <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                                        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-                                        <li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <h5>Actions</h5>
-                            <ul class="actions">
-                                <li><a href="#" class="button primary">Default</a></li>
-                                <li><a href="#" class="button">Default</a></li>
-                            </ul>
-                            <ul class="actions small">
-                                <li><a href="#" class="button primary small">Small</a></li>
-                                <li><a href="#" class="button small">Small</a></li>
-                            </ul>
-                            <div class="row">
-                                <div class="col-6 col-12-small">
-                                    <ul class="actions stacked">
-                                        <li><a href="#" class="button primary">Default</a></li>
-                                        <li><a href="#" class="button">Default</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <ul class="actions stacked">
-                                        <li><a href="#" class="button primary small">Small</a></li>
-                                        <li><a href="#" class="button small">Small</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <ul class="actions stacked">
-                                        <li><a href="#" class="button primary fit">Default</a></li>
-                                        <li><a href="#" class="button fit">Default</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <ul class="actions stacked">
-                                        <li><a href="#" class="button primary small fit">Small</a></li>
-                                        <li><a href="#" class="button small fit">Small</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section>
-                            <h4>Table</h4>
-                            <h5>Default</h5>
-                            <div class="table-wrapper">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Item One</td>
-                                            <td>Ante turpis integer aliquet porttitor.</td>
-                                            <td>29.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Two</td>
-                                            <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                                            <td>19.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Three</td>
-                                            <td> Morbi faucibus arcu accumsan lorem.</td>
-                                            <td>29.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Four</td>
-                                            <td>Vitae integer tempus condimentum.</td>
-                                            <td>19.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Five</td>
-                                            <td>Ante turpis integer aliquet porttitor.</td>
-                                            <td>29.99</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="2"></td>
-                                            <td>100.00</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-
-                            <h5>Alternate</h5>
-                            <div class="table-wrapper">
-                                <table class="alt">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Item One</td>
-                                            <td>Ante turpis integer aliquet porttitor.</td>
-                                            <td>29.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Two</td>
-                                            <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                                            <td>19.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Three</td>
-                                            <td> Morbi faucibus arcu accumsan lorem.</td>
-                                            <td>29.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Four</td>
-                                            <td>Vitae integer tempus condimentum.</td>
-                                            <td>19.99</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Five</td>
-                                            <td>Ante turpis integer aliquet porttitor.</td>
-                                            <td>29.99</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="2"></td>
-                                            <td>100.00</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </section>
-
-                        <section>
-                            <h4>Buttons</h4>
-                            <ul class="actions">
-                                <li><a href="#" class="button primary">Primary</a></li>
-                                <li><a href="#" class="button">Default</a></li>
-                            </ul>
-                            <ul class="actions">
-                                <li><a href="#" class="button large">Large</a></li>
-                                <li><a href="#" class="button">Default</a></li>
-                                <li><a href="#" class="button small">Small</a></li>
-                            </ul>
-                            <ul class="actions fit">
-                                <li><a href="#" class="button primary fit">Fit</a></li>
-                                <li><a href="#" class="button fit">Fit</a></li>
-                            </ul>
-                            <ul class="actions fit small">
-                                <li><a href="#" class="button primary fit small">Fit + Small</a></li>
-                                <li><a href="#" class="button fit small">Fit + Small</a></li>
-                            </ul>
-                            <ul class="actions">
-                                <li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-                                <li><a href="#" class="button icon solid fa-download">Icon</a></li>
-                            </ul>
-                            <ul class="actions">
-                                <li><span class="button primary disabled">Primary</span></li>
-                                <li><span class="button disabled">Default</span></li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h4>Form</h4>
-                            <form method="post" action="#">
-                                <div class="row gtr-uniform gtr-50">
-                                    <div class="col-6 col-12-xsmall">
-                                        <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-                                    </div>
-                                    <div class="col-6 col-12-xsmall">
-                                        <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-                                    </div>
-                                    <div class="col-12">
-                                        <select name="demo-category" id="demo-category">
-                                            <option value="">- Category -</option>
-                                            <option value="1">Manufacturing</option>
-                                            <option value="1">Shipping</option>
-                                            <option value="1">Administration</option>
-                                            <option value="1">Human Resources</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 col-12-small">
-                                        <input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                                        <label for="demo-priority-low">Low Priority</label>
-                                    </div>
-                                    <div class="col-4 col-12-small">
-                                        <input type="radio" id="demo-priority-normal" name="demo-priority">
-                                        <label for="demo-priority-normal">Normal Priority</label>
-                                    </div>
-                                    <div class="col-4 col-12-small">
-                                        <input type="radio" id="demo-priority-high" name="demo-priority">
-                                        <label for="demo-priority-high">High Priority</label>
-                                    </div>
-                                    <div class="col-6 col-12-small">
-                                        <input type="checkbox" id="demo-copy" name="demo-copy">
-                                        <label for="demo-copy">Email me a copy of this message</label>
-                                    </div>
-                                    <div class="col-6 col-12-small">
-                                        <input type="checkbox" id="demo-human" name="demo-human" checked>
-                                        <label for="demo-human">I am a human and not a robot</label>
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <ul class="actions">
-                                            <li><input type="submit" value="Send Message" class="primary" /></li>
-                                            <li><input type="reset" value="Reset" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
-                        </section>
-
-                        <section>
-                            <h4>Image</h4>
-                            <h5>Fit</h5>
-                            <div class="box alt">
-                                <div class="row gtr-50 gtr-uniform">
-                                    <div class="col-12"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-                                    <div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-                                </div>
-                            </div>
-                            <h5>Left &amp; Right</h5>
-                            <p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-                            <p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-                        </section>
-
-                    </section>
-                -->
+        <footer>
+            <span>Khalid Salman &mdash; London, UK</span>
+            <span>Built by hand. No trackers.</span>
+        </footer>
 
     </div>
-
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="inner">
-            <ul class="icons">
-                <li><a href="https://github.com/khalit7/" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                <li><a href="mailto:khalidsulman777@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.poptrox.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
