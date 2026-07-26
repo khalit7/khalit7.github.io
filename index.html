@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Khalid Salman — AI Research Engineer</title>
     <meta name="description"
-        content="AI Research Engineer working across the full LLM lifecycle: distributed training, distillation, evaluation and production serving. Co-led training of the UK's first specialised financial-services LLM." />
+        content="AI Research Engineer working across the full machine learning lifecycle: data pipelines, distributed training, evaluation and production serving. PyTorch, distributed training, LLMs." />
     <meta name="author" content="Khalid Salman" />
     <link rel="canonical" href="https://khalit7.github.io/" />
 
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Khalid Salman — AI Research Engineer" />
     <meta property="og:description"
-        content="Full LLM lifecycle: distributed training, distillation, evaluation and production serving. Co-led training of the UK's first specialised financial-services LLM." />
+        content="Full machine learning lifecycle: data pipelines, distributed training, evaluation and production serving." />
     <meta property="og:url" content="https://khalit7.github.io/" />
     <meta property="og:image" content="https://khalit7.github.io/images/pp.jpg" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Khalid Salman — AI Research Engineer" />
     <meta name="twitter:description"
-        content="Full LLM lifecycle: distributed training, distillation, evaluation and production serving." />
+        content="Full machine learning lifecycle: data pipelines, distributed training, evaluation and production serving." />
     <meta name="twitter:image" content="https://khalit7.github.io/images/pp.jpg" />
 
     <style>
@@ -374,9 +374,10 @@
         </header>
 
         <p class="lede">
-            I work across the full LLM lifecycle: distributed training, distillation, evaluation and
-            production serving. I co-led training of the UK's first specialised financial-services
-            LLM, and I build the evaluation systems that decide whether a model is fit to ship.
+            I work across the full machine learning lifecycle: data pipelines, distributed training,
+            evaluation, and models running in production. Most of my attention goes to the two
+            unglamorous halves of that, the infrastructure that serves a model and the evaluation
+            that decides whether it is fit to ship.
         </p>
         <p class="aside-note">
             Competitive programmer and side-project maniac by night. I built a dual RTX&nbsp;5090
@@ -400,40 +401,18 @@
                 </div>
                 <ul>
                     <li>
-                        <strong>Co-led training of the UK's first specialised financial-services
-                            LLM</strong> ("finllm"), fine-tuning and distillation up to a 22B
-                        mixture-of-experts with distributed multi-node training (FSDP-v2, DeepSpeed
-                        ZeRO, bf16, flash-attention). The distilled models match or exceed much
-                        larger general-purpose models on in-domain tasks.
+                        Work across the <strong>full machine learning lifecycle</strong>, from data
+                        pipelines through model training to models running in production.
                     </li>
                     <li>
-                        <strong>Built the evaluation, benchmarking and regression harness</strong>
-                        that gates every model change before it ships, defining what "failure" looks
-                        like and catching regressions across model versions. It is what cleared
-                        in-house models to replace frontier-API models in production.
+                        Contributed to building the <strong>model serving infrastructure</strong>.
                     </li>
                     <li>
-                        <strong>Stress-tested our own models adversarially</strong>, using AI judges
-                        to probe whether the system could be caught failing. It showed the method
-                        then in use did not hold up, and surfaced a flaw in the evaluation itself
-                        that had been flattering every result.
+                        Contributed to building the <strong>evaluation framework</strong>.
                     </li>
                     <li>
-                        <strong>Built and own the core of a production platform serving 825
-                            models</strong> that flag problem behaviour in customer conversations for
-                        10+ major UK financial institutions, designed so a new detector ships as
-                        configuration rather than code.
-                    </li>
-                    <li>
-                        <strong>Designed and built the anonymisation pipeline</strong> that strips
-                        personal data from call transcripts and swaps in realistic stand-ins,
-                        unlocking billions of production tokens for training.
-                    </li>
-                    <li>
-                        <strong>Authored the instruction-fine-tuning pipeline</strong> (LoRA /
-                        QLoRA) and contributed to the alignment stages that follow it: DPO / GRPO
-                        preference tuning, and the human-in-the-loop system that gathers the
-                        feedback those methods learn from.
+                        Mentor junior engineers, author technical design docs, and contribute to
+                        technical strategy.
                     </li>
                 </ul>
             </div>
