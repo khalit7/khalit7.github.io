@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>I built my own AI workstation, and here’s what renting GPUs never taught me — Khalid Salman</title>
+    <meta name="description" content="Two RTX 5090s, £8,817.78 of parts, and a measured thermal problem: what owning the hardware taught me that renting it never did." />
+    <meta name="author" content="Khalid Salman" />
+    <link rel="canonical" href="https://khalit7.github.io/writing/ai-workstation.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="I built my own AI workstation, and here’s what renting GPUs never taught me" />
+    <meta property="og:description" content="Two RTX 5090s, £8,817.78 of parts, and a measured thermal problem: what owning the hardware taught me that renting it never did." />
+    <meta property="og:url" content="https://khalit7.github.io/writing/ai-workstation.html" />
+    <meta property="og:image" content="https://khalit7.github.io/writing/images/01-finished-build.jpg" />
+    <meta property="article:published_time" content="2026-07-27" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="I built my own AI workstation, and here’s what renting GPUs never taught me" />
+    <meta name="twitter:description" content="Two RTX 5090s, £8,817.78 of parts, and a measured thermal problem: what owning the hardware taught me that renting it never did." />
+    <meta name="twitter:image" content="https://khalit7.github.io/writing/images/01-finished-build.jpg" />
+
+    <style>
+    :root{--bg:#ffffff;--bg-soft:#f6f7f9;--fg:#1c1f24;--fg-muted:#5b626d;--accent:#1f3a5f;
+      --accent-soft:#e8edf4;--rule:#e3e6ea;--radius:10px;--measure:44rem}
+    @media (prefers-color-scheme:dark){:root{--bg:#14171b;--bg-soft:#1b1f25;--fg:#e8eaed;
+      --fg-muted:#a3abb6;--accent:#8ab4e8;--accent-soft:#22303f;--rule:#2c323a}}
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{margin:0;padding:0 1.25rem 4rem;background:var(--bg);color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,
+      "Noto Sans",sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--measure);margin:0 auto}
+    a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+    a:hover{text-decoration:none}
+    h1,h2,h3{line-height:1.25;margin:0;font-weight:650;letter-spacing:-0.01em}
+    p{margin:0 0 1.15rem}
+    .back{display:inline-block;margin:2.5rem 0 0;font-size:0.93rem;font-weight:550;
+      text-decoration:none;color:var(--fg-muted)}
+    .back:hover{color:var(--accent)}
+    header.post{padding:1.75rem 0 2rem;border-bottom:1px solid var(--rule);margin-bottom:2.5rem}
+    header.post h1{font-size:clamp(1.75rem,4.4vw,2.35rem)}
+    .subtitle{color:var(--fg-muted);font-size:1.1rem;margin:0.9rem 0 0}
+    .meta{color:var(--fg-muted);font-size:0.9rem;margin-top:1.1rem}
+    article h2{font-size:1.35rem;margin:2.75rem 0 1rem;letter-spacing:-0.01em}
+    article h3{font-size:1.1rem;margin:2rem 0 0.75rem}
+    article strong{font-weight:600}
+    figure{margin:2rem 0}
+    figure img{display:block;width:100%;height:auto;border-radius:var(--radius);
+      border:1px solid var(--rule)}
+    figcaption{color:var(--fg-muted);font-size:0.88rem;margin-top:0.6rem;line-height:1.5}
+    .table-scroll{overflow-x:auto;margin:1.75rem 0;border:1px solid var(--rule);
+      border-radius:var(--radius)}
+    table{border-collapse:collapse;width:100%;font-size:0.94rem;min-width:30rem}
+    th,td{text-align:left;padding:0.6rem 0.9rem;border-bottom:1px solid var(--rule)}
+    thead th{background:var(--bg-soft);font-weight:600;white-space:nowrap}
+    tbody tr:last-child td{border-bottom:0}
+    td:last-child,th:last-child{text-align:right;white-space:nowrap}
+    ul{padding-left:1.15rem;margin:0 0 1.15rem}
+    li{margin-bottom:0.55rem}
+    code{background:var(--bg-soft);border:1px solid var(--rule);border-radius:4px;
+      padding:0.1rem 0.35rem;font-size:0.9em;
+      font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .appendix-rule{border:0;border-top:1px solid var(--rule);margin:3rem 0 0}
+    footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);
+      color:var(--fg-muted);font-size:0.9rem;display:flex;justify-content:space-between;
+      gap:1rem;flex-wrap:wrap}
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <a class="back" href="../">&larr; Khalid Salman</a>
+
+        <header class="post">
+            <h1>I built my own AI workstation, and here’s what renting GPUs never taught me</h1>
+            <p class="subtitle">Two RTX 5090s, £8,817.78 of parts, somewhere to act on my intrusive AI thoughts without pricing them up first, and a thermal problem I’d never have found on rented hardware.</p>
+            <p class="meta"><time datetime="2026-07-27">27 July 2026</time></p>
+        </header>
+
+        <article>
+<p>There&rsquo;s a tower next to my desk that I put together myself. It normally runs with two of its glass panels off and leaning against the wall behind it, which is worth six or seven degrees. It looks like something caught halfway through a repair. That&rsquo;s the normal operating state.</p>
+<figure><img src="images/01-finished-build.jpg" alt="The finished build with both tempered glass panels fitted, seven RGB fans and both graphics cards visible through the glass" loading="lazy" /><figcaption>The machine with the glass on. This is not how it usually runs.</figcaption></figure>
+<h2>Eleven at night, and the only cost is a warm room</h2>
+<p>Here&rsquo;s the thing that actually changed.</p>
+<p>It&rsquo;s eleven at night and I want to rerun a pretraining config with a different vocabulary size. Nothing rides on it. I&rsquo;m curious about the shape of the loss curve, that&rsquo;s all.</p>
+<p>Before I had this machine, that thought came with a second half attached. Price the instance, work out how many hours it needs, then decide whether a shrug-shaped answer is worth the money. Usually I went to bed instead.</p>
+<p>A rented GPU bills by the hour whether the run is any good or not. So the sweep gets narrower, the sequence length comes down, the checkpoint interval goes up, and you talk yourself into believing the cheap version of the experiment answers the same question as the expensive one. It usually doesn&rsquo;t. Worse, a meter running in the background makes you want the run to <em>finish</em>, because finishing is what stops the charge. A machine in the corner of the room has no opinion about how long anything takes. The runs that need two days get two days, and I stopped quietly biasing my own work toward whatever converged fastest.</p>
+<p>I run far more things that don&rsquo;t work now. That&rsquo;s the point. The things that don&rsquo;t work are where most of the learning is.</p>
+<p>Someone will point out that spending £8,000 to save money makes no sense, and they&rsquo;d be right. At the scale I run side projects, that money rents enough GPU hours to last years. The arithmetic doesn&rsquo;t favour buying and I&rsquo;m not going to pretend it does. But don&rsquo;t underestimate the psychological half of it: paying once != paying every time you&rsquo;re curious, and only one of those quietly edits what you&rsquo;re willing to try.</p>
+<p>That isn&rsquo;t the only reason either.</p>
+<h2>Three reasons</h2>
+<p>I wanted to understand the hardware properly. I wanted a machine I could run my own projects on without first pricing out what a rented GPU would cost me for an evening of something that might not pan out, so that the stupid experiments, which are the ones I learn most from, are free. And I wanted to write CUDA kernels for machine learning workloads.</p>
+<p>Two cards at home is a specific bet: that most of what I want to do fits in 64GB of VRAM and runs for days, not for a fortnight across a cluster. Renting still wins for a shape I can&rsquo;t buy. Eight cards for a week and then nothing is a rental problem and always will be. Owning means depreciation whether the box is busy or not, and when a fan dies at 3am it&rsquo;s my fan.</p>
+<p>So the division of labour is simple. The small runs, the ones I&rsquo;m experimenting with and learning from, stay on JDI. Yes, my PC has a name. Anything that needs to scale past two cards gets rented, and knowing where that line sits is itself something owning the machine taught me.</p>
+<h2>Writing CUDA kernels</h2>
+<p>That third reason is the one I&rsquo;d put first. Until I built this, my mental model of a GPU stopped somewhere around the API surface and a memory number.</p>
+<p>Kernel work is a compile, run, measure, throw-it-away loop, and it&rsquo;s a terrible fit for rented hardware where the meter runs during the thinking as well as the computing. You need the machine free at the margin or you optimise the wrong thing, which is your own spend. Something small and fused, benchmarked honestly against whatever PyTorch already ships for the same op. I haven&rsquo;t written it yet, and I expect the first attempt to lose badly.</p>
+<h2>A case that reviews well for gaming is not a case for a nine-hour run</h2>
+<p>The Lian Li O11D EVO XL is a good case. It&rsquo;s also reviewed, almost everywhere, against a workload that has nothing to do with mine.</p>
+<p>A review loads a machine hard for a few minutes, records a peak, and moves on. Games are bursty. There are menus and loading screens and the bit where you go and make tea. Training isn&rsquo;t like that at all. Both cards sit near their limit for hours, the thermals settle into a steady state no benchmark run ever reaches, and the number that matters stops being the peak. It becomes whatever the machine has converged to at hour three. Nothing I read before buying measured that.</p>
+<p>The two cards alone account for 1,175W at their power caps, one at 600W and the other at 575W. Add the CPU and it&rsquo;s the thick end of 1,350W, essentially all of which comes back out as heat, into one room, in a London flat. The machine is a 1.3kW heater that occasionally trains a language model.</p>
+<p>So I took the panels off and measured it properly.</p>
+<figure><img src="images/02-running-open.jpg" alt="The machine running with the side and front glass panels removed, both graphics cards and the AIO pump screen visible" loading="lazy" /><figcaption>How it actually runs. The pump screen is doing its own thing.</figcaption></figure>
+<p>Incidentally, there&rsquo;s an LCD on the pump head, and I have Gohan going Super Saiyan on it. It seemed appropriate. He spends the whole scene screaming and drawing an absurd amount of power to do one specific thing, which is more or less the machine&rsquo;s entire personality.</p>
+<figure><img src="images/03-temps-panels-on-vs-off.jpg" alt="Two nvidia-smi captures side by side under identical sustained load. Panels on: 81°C and 84°C, fans at 93% and 82%. Panels off: 75°C and 77°C, fans at 81% and 62%. Power draw pinned at 600W and 575W in both" loading="lazy" /><figcaption>Panels on, then panels off. Identical load, identical power draw, six and seven degrees apart.</figcaption></figure>
+<p>Same sustained BF16 matmul on both cards, four minutes of thermal soak, captured at steady state. Panels on: 81°C and 84°C. Panels off, identical load: 75°C and 77°C. Six degrees and seven degrees.</p>
+<p>Power draw was pinned to the cap in both runs, 600W and 575W, so nothing was throttling and the comparison is clean.</p>
+<p>The temperatures are the headline, but the fan speeds are the more interesting number. With the panels on, the second card&rsquo;s fan sat at 82%. With them off, 62%. Twenty points less fan, to hold a temperature seven degrees lower, doing identical work. The sealed case wasn&rsquo;t just running hotter. It was running hotter <em>and</em> spending more fan to get there, which is noise I have to sit next to and bearings I have to replace eventually.</p>
+<p>I don&rsquo;t think it&rsquo;s a bad case. Two cards this size in a sealed glass box is a heat problem you probably can&rsquo;t fan your way out of at this size. There&rsquo;s something faintly ridiculous about buying a case sold on its airflow and then running it with half the enclosure on the floor, and I&rsquo;d still make the same purchase.</p>
+<p>This is the part renting never taught me. On a cloud instance, thermals are somebody else&rsquo;s problem, expressed to me as a price per hour and occasionally as a clock speed I never see throttle. Here it&rsquo;s my problem, and having to solve it taught me more about how hardware behaves under sustained load than any number of rented hours would have.</p>
+<h2>Power delivery is the one spec you get a single shot at</h2>
+<p>Everyone talks about the GPU. The component I ended up understanding properly was the boring grey box at the bottom.</p>
+<p>It&rsquo;s an MSI MEG Ai1600T PCIE5. 1600W, 80+ Titanium, up to 94% efficient. The specification that turned out to matter is the dull one: two native 12V-2x6 connectors, each rated to 600W. Native. Not an adapter, not two 8-pins bodged into a dongle, an actual cable running from the supply to the card with nothing in between.</p>
+<p>I didn&rsquo;t know what any of that meant when I started. I do now, because I had to choose it. The 12V-2x6 is a revision of the older 12VHPWR connector with shorter sense pins and slightly longer power pins, and the only reason that revision exists is that the previous one could melt when it wasn&rsquo;t pushed all the way home. You can stay comfortably unaware of that right up until you&rsquo;re the person plugging it in.</p>
+<p>Two 5090s and the CPU want somewhere around 1,350W between them. The supply covers that with headroom and without an adapter anywhere in the loom.</p>
+<p>That part wasn&rsquo;t luck. I specced the supply already knowing I wanted two 5090s in this machine, which is why the connector count mattered to me as much as the wattage did. Get the wattage right and the connectors wrong and you&rsquo;re back to adapters, on the one component where I least wanted a compromise.</p>
+<p>None of which stopped me destroying one.</p>
+<p>I had the supply running off a cheap extension lead instead of straight into the wall. There was a bang like a gunshot, the machine went dead, and the power supply was cooked. Everything else survived, which I put down to luck rather than anything I&rsquo;d done. The replacement went directly into a wall socket and has stayed there. Roughly £500 to learn that the thing standing between a 1.3kW draw and the mains is not the place to improvise, and there is no version of this where I get to blame the hardware.</p>
+<p>The generalisable bit: power delivery and connector count decide whether a machine can grow, and they&rsquo;re the specs you can&rsquo;t change later without pulling the whole build apart. Cores and memory you can argue about afterwards.</p>
+<p>Buying compute by the hour, you never once think about a connector standard. That&rsquo;s the trade. Somebody else takes on the physical layer and hands you a device string, and in exchange you stay slightly ignorant of what&rsquo;s underneath it, forever.</p>
+<h2>The second card was a clearance problem before it was anything else</h2>
+<p>In the cloud, adding a GPU is an edit to a config file. Here it&rsquo;s a question of clearance. Two cards that size don&rsquo;t sit next to each other in a way that lets either of them breathe, so the second one goes somewhere else in the case entirely, which means a bracket to hold it, a second bracket to hold it at the right angle, and a cable long enough to reach the slot it&rsquo;s no longer sitting in.</p>
+<p>An upright mount, £20.00. A vertical mount, £78.71. A 40cm riser cable, £97.00. Ninety-seven pounds. For a cable. I checked the order twice. A Gen 5 riser has to hold impedance and shielding together at 32 GT/s per lane, and the cheap ones don&rsquo;t fail by refusing to work. They fail by quietly downgrading your link or throwing artifacts, which is how £97 stops looking like a typo and starts looking merely expensive.</p>
+<p>£195.71 in brackets and cable, to mount a card I already had.</p>
+<p>I then broke the vertical mount getting the card into it. Too much force on a latch that didn&rsquo;t want to move, on a day when I should probably have stopped and come back to it, and the lock snapped. What broke was a bracket rather than the card sitting in the bracket, which is the only reason I can tell that story lightly.</p>
+<p>The case-specific build video I&rsquo;d used for cable routing turned out to be just as useful for working out mounting points.</p>
+<h2>Five links did nearly all the planning</h2>
+<p>Almost all the specification work happened on <a href="https://uk.pcpartpicker.com/list/">PCPartPicker</a>. You build the list, it tells you what&rsquo;s incompatible, and it prices each part across vendors at the same time. Probably the best site there is for this. I looked at <a href="https://www.pcspecialist.co.uk">PCSpecialist</a> as a sanity check and thought the pricing was high.</p>
+<p>After that it was three videos: <a href="https://www.youtube.com/watch?v=s1fxZ-VWs2U&amp;t=9s">a general build guide</a>, <a href="https://www.youtube.com/watch?v=EaGxQSapzX0">one for this exact case</a>, and <a href="https://www.youtube.com/watch?v=2mr_38vOd9M&amp;t=12s">one for this exact motherboard</a>. Someone assembling the specific board sitting in front of you beats any amount of general advice, because the thing you&rsquo;re unsure about at 9pm is which of two nearly identical headers the front panel cable goes into.</p>
+<p>Assembly is not too difficult, and I&rsquo;d say that to anyone considering it. The parts are expensive enough to make you slow and careful, and slow and careful is the correct speed. Both of the things I broke, I broke by not being either.</p>
+<hr class="appendix-rule" />
+<h2>What it costs</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Model</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU</td>
+<td>ASUS GeForce RTX 5090 32GB TUF Gaming OC</td>
+<td>£2,639.10</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>Zotac GeForce RTX 5090 32GB</td>
+<td>£2,900.00</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>G.Skill Trident Z5 Neo RGB 64GB (2x32GB) DDR5-6000 CL30</td>
+<td>£599.99</td>
+</tr>
+<tr>
+<td>PSU</td>
+<td>MSI MEG Ai1600T PCIE5, 1600W</td>
+<td>£507.00</td>
+</tr>
+<tr>
+<td>Motherboard</td>
+<td>ASUS ProArt X870E-Creator WiFi</td>
+<td>£494.99</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>AMD Ryzen 9 9950X</td>
+<td>£487.86</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Samsung 990 PRO 2TB</td>
+<td>£228.30</td>
+</tr>
+<tr>
+<td>CPU cooler</td>
+<td>Lian Li Galahad II LCD-SL 360</td>
+<td>£223.94</td>
+</tr>
+<tr>
+<td>Case</td>
+<td>Lian Li O11D EVO XL</td>
+<td>£198.94</td>
+</tr>
+<tr>
+<td>Fans</td>
+<td>Lian Li UNI SL120 INF, 3x</td>
+<td>£75.49</td>
+</tr>
+<tr>
+<td>Fans</td>
+<td>Lian Li UNI SL120 INF, 3x</td>
+<td>£75.49</td>
+</tr>
+<tr>
+<td>Fan</td>
+<td>Lian Li UNI SL120 Reverse, 1x</td>
+<td>£29.98</td>
+</tr>
+<tr>
+<td>Riser cable</td>
+<td>40cm, Gen 5</td>
+<td>£97.00</td>
+</tr>
+<tr>
+<td>GPU mount</td>
+<td>Vertical</td>
+<td>£78.71</td>
+</tr>
+<tr>
+<td>GPU mount</td>
+<td>Upright</td>
+<td>£20.00</td>
+</tr>
+<tr>
+<td>KVM switch</td>
+<td></td>
+<td>£89.99</td>
+</tr>
+<tr>
+<td>Keyboard</td>
+<td></td>
+<td>£71.00</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>£8,817.78</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>The two cards are £5,539.10 of that, a shade under 63%. That ratio is the honest summary of the whole exercise. It&rsquo;s a pair of GPUs with a computer attached, and everything else in the table exists to feed them, cool them, or store what they produce.</p>
+<p>Shopping around rather than buying a prebuilt saved £372.55 against list prices, about 6%, and almost all of it came off two lines: £180.89 on a graphics card and £92.99 on the power supply. If you&rsquo;re doing this yourself, that&rsquo;s the part worth copying. Watch the two or three most expensive lines and let the rest go. Hunting a fiver off a case is an evening you never get back.</p>
+<p>The CPU is the part I thought least about and lean on most. Sixteen Zen 5 cores, 32 threads, and a 170W TDP, which is why £223.94 went on a 360mm AIO instead of a tower cooler. Tokenising and loading data is CPU work, and two 5090s are very good at sitting idle while a single thread chews through a preprocessing script.</p>
+<h2>References</h2>
+<p>Everything I actually used to plan and build this.</p>
+<p><strong>Picking the parts</strong></p>
+<ul>
+<li><a href="https://uk.pcpartpicker.com/list/">PCPartPicker UK</a>. Compatibility checking and per-part pricing across vendors. This did most of the work.</li>
+<li><a href="https://www.pcspecialist.co.uk">PCSpecialist</a>. The same idea for a full prebuilt, useful as a price sanity check.</li>
+</ul>
+<p><strong>Building it</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=s1fxZ-VWs2U&amp;t=9s">General build guide</a>. The one I&rsquo;d point a first-time builder at.</li>
+<li><a href="https://www.youtube.com/watch?v=EaGxQSapzX0">Lian Li O11D EVO XL build</a>. This exact case. Worth watching twice, once for routing and once for mounting points.</li>
+<li><a href="https://www.youtube.com/watch?v=2mr_38vOd9M&amp;t=12s">ASUS ProArt X870E-Creator walkthrough</a>. This exact motherboard, which is what you want at the moment you&rsquo;re staring at two nearly identical headers.</li>
+</ul>
+<p><strong>Background on the parts that surprised me</strong></p>
+<ul>
+<li><a href="https://www.hwcooling.net/en/uneven-resistance-and-lack-of-headroom-why-12v-2x6s-fail/">Why 12V-2x6 connectors fail</a>. The connector revision, and why full seating matters.</li>
+<li><a href="https://gamersnexus.net/gpus/12vhpwr-dumpster-fire-investigation-contradicting-specs-corner-cutting">12VHPWR investigation</a>. The longer version of the same story.</li>
+<li><a href="https://graphicscardhub.com/pcie-gen5-riser-cable/">Choosing a PCIe 5.0 riser</a>. What the money buys at 32 GT/s per lane, and how the cheap ones fail.</li>
+</ul>
+<p><strong>The two parts worth reading up on before you buy</strong></p>
+<ul>
+<li><a href="https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html">AMD Ryzen 9 9950X specifications</a>. Sixteen cores, 32 threads, and the 170W TDP that decides your cooler.</li>
+<li><a href="https://www.tomshardware.com/pc-components/power-supplies/msi-meg-ai1600t-pcie5-titanium-power-supply-review">MSI MEG Ai1600T PCIE5 review</a>. An independent test of the supply, rather than the manufacturer&rsquo;s own page.</li>
+</ul>
+        </article>
+
+        <footer>
+            <span>Khalid Salman &mdash; London, UK</span>
+            <span>Built by hand. No trackers.</span>
+        </footer>
+    </div>
+</body>
+
+</html>

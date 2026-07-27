@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Writing — Khalid Salman</title>
+    <meta name="description"
+        content="Writing on LLM training, evaluation, and the hardware underneath it, by Khalid Salman." />
+    <meta name="author" content="Khalid Salman" />
+    <link rel="canonical" href="https://khalit7.github.io/writing/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Writing — Khalid Salman" />
+    <meta property="og:description"
+        content="Writing on LLM training, evaluation, and the hardware underneath it." />
+    <meta property="og:url" content="https://khalit7.github.io/writing/" />
+    <meta name="twitter:card" content="summary" />
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-soft: #f6f7f9;
+            --fg: #1c1f24;
+            --fg-muted: #5b626d;
+            --accent: #1f3a5f;
+            --accent-soft: #e8edf4;
+            --rule: #e3e6ea;
+            --radius: 10px;
+            --measure: 48rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #14171b;
+                --bg-soft: #1b1f25;
+                --fg: #e8eaed;
+                --fg-muted: #a3abb6;
+                --accent: #8ab4e8;
+                --accent-soft: #22303f;
+                --rule: #2c323a;
+            }
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0 1.25rem 4rem;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+                Arial, "Noto Sans", sans-serif;
+            font-size: 17px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            max-width: var(--measure);
+            margin: 0 auto;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.25;
+            margin: 0;
+            font-weight: 650;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin: 0 0 1.15rem;
+        }
+
+        .back {
+            display: inline-block;
+            margin: 2.5rem 0 0;
+            font-size: 0.93rem;
+            font-weight: 550;
+            text-decoration: none;
+            color: var(--fg-muted);
+        }
+
+        .back:hover {
+            color: var(--accent);
+        }
+
+        header.page {
+            padding: 1.75rem 0 2rem;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 2.5rem;
+        }
+
+        header.page h1 {
+            font-size: clamp(1.9rem, 5vw, 2.4rem);
+        }
+
+        .lede {
+            color: var(--fg-muted);
+            font-size: 1.08rem;
+            margin: 0.9rem 0 0;
+            max-width: 40rem;
+        }
+
+        article.entry {
+            border: 1px solid var(--rule);
+            border-left: 3px solid var(--accent);
+            border-radius: var(--radius);
+            background: var(--bg-soft);
+            padding: 1.35rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        article.entry h2 {
+            font-size: 1.2rem;
+        }
+
+        article.entry h2 a {
+            text-decoration: none;
+        }
+
+        article.entry h2 a:hover {
+            text-decoration: underline;
+        }
+
+        .entry-meta {
+            color: var(--fg-muted);
+            font-size: 0.88rem;
+            margin: 0.5rem 0 0.85rem;
+        }
+
+        .entry p.summary {
+            margin: 0;
+            color: var(--fg-muted);
+            font-size: 0.97rem;
+        }
+
+        footer {
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--rule);
+            color: var(--fg-muted);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <a class="back" href="../">&larr; Khalid Salman</a>
+
+        <header class="page">
+            <h1>Writing</h1>
+            <p class="lede">
+                Notes on training and evaluating language models, and on the hardware underneath
+                them. Mostly things I got wrong first.
+            </p>
+        </header>
+
+        <article class="entry">
+            <h2>
+                <a href="ai-workstation.html">I built my own AI workstation, and here&rsquo;s what
+                    renting GPUs never taught me</a>
+            </h2>
+            <p class="entry-meta"><time datetime="2026-07-27">27 July 2026</time></p>
+            <p class="summary">
+                Two RTX 5090s and &pound;8,817.78 of parts. What the machine cost, what it changed
+                about which experiments I&rsquo;m willing to run, a measured thermal problem worth
+                six or seven degrees, and the &pound;500 power supply I destroyed learning why
+                extension leads are a bad idea.
+            </p>
+        </article>
+
+        <footer>
+            <span>Khalid Salman &mdash; London, UK</span>
+            <span>Built by hand. No trackers.</span>
+        </footer>
+    </div>
+</body>
+
+</html>
