@@ -5,21 +5,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>I built my own dual RTX 5090 AI workstation, and here’s what renting GPUs never taught me — Khalid Salman</title>
-    <meta name="description" content="Three months and £8,817.78 building a dual RTX 5090 workstation: what it cost, buying GPUs vs renting them, and the three things owning it taught me that a cloud instance never would." />
+    <meta name="description" content="Three months and £8k building a dual RTX 5090 AI workstation: what each component costs and how I settled buying vs renting GPUs." />
     <meta name="author" content="Khalid Salman" />
-    <link rel="canonical" href="https://khalit7.github.io/writing/ai-workstation.html" />
+    <link rel="canonical" href="https://medium.com/@khalidsulman777/i-built-my-own-dual-rtx-5090-ai-workstation-and-heres-what-renting-gpus-never-taught-me-bdbdb2c9b300" />
 
     <meta property="og:type" content="article" />
     <meta property="og:title" content="I built my own dual RTX 5090 AI workstation, and here’s what renting GPUs never taught me" />
-    <meta property="og:description" content="Three months and £8,817.78 building a dual RTX 5090 workstation: what it cost, buying GPUs vs renting them, and the three things owning it taught me that a cloud instance never would." />
+    <meta property="og:description" content="Three months and £8k building a dual RTX 5090 AI workstation: what each component costs and how I settled buying vs renting GPUs." />
     <meta property="og:url" content="https://khalit7.github.io/writing/ai-workstation.html" />
-    <meta property="og:image" content="https://khalit7.github.io/writing/images/01-finished-build.jpg" />
+    <meta property="og:image" content="https://khalit7.github.io/writing/images/00-hero.png" />
     <meta property="article:published_time" content="2026-07-27" />
-    <meta property="article:modified_time" content="2026-09-13" />
+    <meta property="article:modified_time" content="2026-09-23" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="I built my own dual RTX 5090 AI workstation, and here’s what renting GPUs never taught me" />
-    <meta name="twitter:description" content="Three months and £8,817.78 building a dual RTX 5090 workstation: what it cost, buying GPUs vs renting them, and the three things owning it taught me that a cloud instance never would." />
-    <meta name="twitter:image" content="https://khalit7.github.io/writing/images/01-finished-build.jpg" />
+    <meta name="twitter:description" content="Three months and £8k building a dual RTX 5090 AI workstation: what each component costs and how I settled buying vs renting GPUs." />
+    <meta name="twitter:image" content="https://khalit7.github.io/writing/images/00-hero.png" />
 
     <style>
     :root{--bg:#ffffff;--bg-soft:#f6f7f9;--fg:#1c1f24;--fg-muted:#5b626d;--accent:#1f3a5f;
@@ -75,21 +75,21 @@
 
         <header class="post">
             <h1>I built my own dual RTX 5090 AI workstation, and here’s what renting GPUs never taught me</h1>
-            <p class="subtitle">I spent 3 months and £8,817.78 building JDI (yes, my PC has a name). This post is what it cost, how I settled buying GPUs for AI training vs renting them, and the three things owning it taught me that a cloud instance never would.</p>
-            <p class="meta"><time datetime="2026-07-27">27 July 2026</time>, rewritten <time datetime="2026-09-13">13 September 2026</time></p>
+            <p class="subtitle">I spent 3 months and £8k building my AI workstation. This post is what each component costs and how I settled buying VS cloud renting.</p>
+            <p class="meta"><time datetime="2026-07-27">27 July 2026</time>, updated <time datetime="2026-09-23">23 September 2026</time> &middot; <a href="https://medium.com/@khalidsulman777/i-built-my-own-dual-rtx-5090-ai-workstation-and-heres-what-renting-gpus-never-taught-me-bdbdb2c9b300">Also on Medium</a></p>
         </header>
 
         <article>
-<figure><img src="images/01-finished-build.jpg" alt="The finished build with both tempered glass panels fitted, seven RGB fans and both graphics cards visible through the glass" loading="lazy" /><figcaption>The machine with the glass on. This is not how it usually runs.</figcaption></figure>
-<h2>Building an AI workstation, or renting?</h2>
-<p>Short answer: BOTH. Let me explain.</p>
-<p>Imagine it&rsquo;s eleven at night and I want to rerun a pretraining config with a different vocabulary size. Nothing rides on it, I&rsquo;m curious about the shape of the loss curve. On a rented GPU that thought comes with a second half attached: price the instance, estimate the hours, decide whether a shrug-shaped answer is worth the money. Usually I went to bed instead. And when I did run things, the meter changed the experiment itself. The sweep got narrower, the sequence length came down, and I wanted the run to <em>finish</em>, because finishing is what stops the charge.</p>
-<p>A machine in the corner of the room has no opinion about how long anything takes. So I run far more things that don&rsquo;t work now, and the things that don&rsquo;t work are where most of the learning is.</p>
-<p>There were two other reasons. I wanted to understand the hardware properly, below the API surface and the memory number. And I wanted somewhere to write CUDA kernels, which is a compile-&gt;run-&gt;measure-&gt;throw-it-away-&gt;and-repeat loop that fits rented hardware terribly.</p>
+<figure><img src="images/00-hero.png" alt="Illustration of a glass-sided PC with two large graphics cards on a desk at dusk, a monitor showing training curves, and a home-to-cloud diagram floating above" loading="lazy" /></figure>
+<h2>Building VS renting</h2>
+<p>Imagine it&rsquo;s eleven at night and I want to rerun a pretraining config with a different vocabulary size or a different scheduler. Nothing rides on it, I&rsquo;m curious about the shape of the loss curve. On a rented GPU that thought comes with a second half attached: price the instance, estimate the hours, decide whether a shrug-shaped answer is worth the money. Usually I went to bed instead. And when I did run things, the meter changed the experiment itself. The sweep got narrower, the sequence length came down, and I wanted the run to <em>finish</em>, because finishing is what stops the charge. A machine in the corner of the room has no opinion about how long anything takes. So I run far more things that don&rsquo;t work now, and the things that don&rsquo;t work are where most of the learning is.</p>
+<p>Additionally, building the machine yourself exposes you to the hardware layer that is usually hidden behind an API. On a cloud instance, you do not need to understand things like thermal throttling or how multiple GPUs communicate over NVLink versus PCIe. Don&rsquo;t get me wrong, you probably should understand those things, but you can often get by without them. When you build the machine yourself, that knowledge becomes essential.</p>
+<p>Finally, I wanted somewhere to write CUDA kernels, which is a compile-&gt;run-&gt;measure-&gt;throw-it-away-&gt;and-repeat loop that fits rented hardware terribly.</p>
+<p>All of the above are reasons I decided to build JDI (yes, my PC has a name). That doesn&rsquo;t mean I stopped renting cloud instances, though. Some workloads simply don&rsquo;t fit within 64GB of VRAM, and when that happens, I still need to scale up to a more powerful cluster.</p>
 <p>The rule I ended up with is simple:</p>
 <ul>
-<li>Small runs, the ones I&rsquo;m learning from ⇒ JDI.</li>
-<li>Anything that needs to scale past two cards (mostly comes after initial experiments on JDI) ⇒ rent a cluster.</li>
+<li>Small runs, the ones I&rsquo;m learning from ⇒ local work station.</li>
+<li>Anything that needs to scale past two cards (mostly comes after initial experiments on my local workstation) ⇒ rent a cluster.</li>
 </ul>
 <p>Knowing where that line sits is itself something owning the machine taught me. Two cards at home is a bet that most of what I want to do fits in 64GB of VRAM and runs for days, not for a fortnight across eight cards. Renting still wins for a shape I can&rsquo;t buy.</p>
 <h2>What it costs</h2>
@@ -199,10 +199,9 @@
 <h3>1. The thermal problem</h3>
 <p>The Lian Li O11D EVO XL is a good case. It&rsquo;s also reviewed, almost everywhere, against a workload that has nothing to do with mine.</p>
 <p>Most people use this case for gaming with one GPU. I&rsquo;m using it for much longer runs with two. The two cards alone draw almost 1,200W at their caps. Add the CPU and it&rsquo;s the thick end of 1,350W, essentially all of it coming back out as heat into one room in a London flat. The machine is a 1.3kW heater that occasionally trains a language model.</p>
-<p>Thankfully, there is the simple solution of taking the panels off when running both GPUs.</p>
-<figure><img src="images/02-running-open.jpg" alt="The machine running with the side and front glass panels removed, both graphics cards and the AIO pump screen visible" loading="lazy" /><figcaption>How it actually runs. The pump screen is doing its own thing.</figcaption></figure>
-<p>Same sustained BF16 matmul on both cards, four minutes of thermal soak, captured at steady state. Power draw was pinned to the cap in both runs, so nothing was throttling and the comparison is clean.</p>
-<figure><img src="images/03-temps-panels-on-vs-off.jpg" alt="Two nvidia-smi captures side by side under identical sustained load. Panels on: 81°C and 84°C, fans at 93% and 82%. Panels off: 75°C and 77°C, fans at 81% and 62%. Power draw pinned at 600W and 575W in both" loading="lazy" /><figcaption>Panels on, then panels off. Identical load, identical power draw, six and seven degrees apart.</figcaption></figure>
+<p>Thankfully, there is the simple solution of taking the panels off when running both GPUs, which has the side benefit of showing the LCD screen more clearly which has Gohan going Super Saiyan on it (see image below). He spends the whole scene screaming and drawing an absurd amount of power, which is more or less the machine&rsquo;s entire personality.</p>
+<figure><img src="images/02-running-open.jpg" alt="The machine running with the side and front glass panels removed, both graphics cards and the AIO pump screen visible" loading="lazy" /></figure>
+<p>I ran a quick experiment to measure the effect of taking the panel off for thermal performance. Below are the numbers.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -230,8 +229,8 @@
 </tbody>
 </table></div>
 <p>The temperatures are the headline, but the fan speeds are the more interesting number. The sealed case was running hotter and spending 20 more points of fan to get there, which is noise I have to sit next to and bearings I have to replace eventually.</p>
-<p>Verdict: I don&rsquo;t think it&rsquo;s a bad case. Two cards this size in a sealed glass box is probably a heat problem you can&rsquo;t fan your way out of, and there&rsquo;s something faintly ridiculous about buying a case sold on its airflow and then running it with half the enclosure on the floor. Would a mesh case have fixed it? I don&rsquo;t know. Would liquid-cooled GPUs have fixed it? Probably, but haven&rsquo;t I already spent enough? On a cloud instance, thermals are somebody else&rsquo;s problem, expressed to me as a price per hour. Here they&rsquo;re mine.</p>
-<p>(There&rsquo;s an LCD on the pump head, and I have Gohan going Super Saiyan on it. He spends the whole scene screaming and drawing an absurd amount of power to do one specific thing, which is more or less the machine&rsquo;s entire personality.)</p>
+<p>Verdict: I don&rsquo;t think it&rsquo;s a bad case. Two cards this size in a sealed glass box is probably a heat problem you can&rsquo;t fan your way out of, and there&rsquo;s something faintly ridiculous about buying a case sold on its airflow and then running it with half the enclosure on the floor. Would a mesh case have fixed it? I don&rsquo;t know. Would liquid-cooled GPUs have fixed it? Probably, but haven&rsquo;t I already spent enough?</p>
+<p>On a cloud instance, thermals are somebody else&rsquo;s problem, expressed to me as a price per hour. Here they&rsquo;re mine.</p>
 <h3>2. Power delivery is the one spec you get a single shot at</h3>
 <p>Everyone talks about the GPU. The component I ended up understanding properly was the boring grey box at the bottom.</p>
 <p>It&rsquo;s an MSI MEG Ai1600T PCIE5: 1600W, 80+ Titanium, up to 94% efficient. I didn&rsquo;t know what most of that meant when I started. The specification that turned out to matter is the dull one: two native 12V-2x6 connectors, each rated to 600W. Native means an actual cable from the supply to the card, with no adapter and no two 8-pins bodged into a dongle in between. The 12V-2x6 is a revision of the older 12VHPWR connector with shorter sense pins, and the only reason that revision exists is that the previous one could melt when it wasn&rsquo;t pushed all the way home. You can stay comfortably unaware of that right up until you&rsquo;re the person plugging it in.</p>
@@ -244,29 +243,29 @@
 <p>An upright mount, £20.00. A vertical mount, £78.71. A 40cm riser cable, £97.00. Ninety-seven pounds. For a cable. I checked the order twice. A Gen 5 riser has to hold impedance and shielding together at 32 GT/s per lane, and the cheap ones don&rsquo;t fail by refusing to work. They fail by quietly downgrading your link or throwing artifacts, which is how £97 stops looking like a typo and starts looking merely expensive.</p>
 <p>So: £195.71 in brackets and cable, to mount a card I already had.</p>
 <p>I then broke the vertical mount getting the card into it. Too much force on a latch that didn&rsquo;t want to move, on a day when I should probably have stopped and come back to it, and the lock snapped. What broke was a bracket rather than the card sitting in the bracket, which is the only reason I can tell that story lightly.</p>
-<h3>How I planned the build</h3>
+<h2>How I planned the build</h2>
 <p>Almost all the specification work happened on <a href="https://uk.pcpartpicker.com/list/">PCPartPicker</a>: you build the list, it tells you what&rsquo;s incompatible, and it prices each part across vendors. Probably the best site there is for this. After that it was three videos, <a href="https://www.youtube.com/watch?v=s1fxZ-VWs2U&amp;t=9s">a general build guide</a>, <a href="https://www.youtube.com/watch?v=EaGxQSapzX0">one for this exact case</a>, and <a href="https://www.youtube.com/watch?v=2mr_38vOd9M&amp;t=12s">one for this exact motherboard</a>. Someone assembling the specific board in front of you beats any amount of general advice, because the thing you&rsquo;re unsure about at 9pm is which of two nearly identical headers the front panel cable goes into.</p>
 <p>Assembly is not too difficult. The parts are expensive enough to make you slow and careful, and slow and careful is the correct speed. Both of the things I broke, I broke by not being either.</p>
 <h2>References</h2>
 <p>Everything I actually used to plan and build this.</p>
-<p><strong>Picking the parts</strong></p>
+<p>Picking the parts</p>
 <ul>
 <li><a href="https://uk.pcpartpicker.com/list/">PCPartPicker UK</a>. Compatibility checking and per-part pricing across vendors. This did most of the work.</li>
-<li><a href="https://www.pcspecialist.co.uk">PCSpecialist</a>. The same idea for a full prebuilt, useful as a price sanity check.</li>
+<li><a href="https://www.pcspecialist.co.uk/">PCSpecialist</a>. The same idea for a full prebuilt, useful as a price sanity check.</li>
 </ul>
-<p><strong>Building it</strong></p>
+<p>Building it</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=s1fxZ-VWs2U&amp;t=9s">General build guide</a>. The one I&rsquo;d point a first-time builder at.</li>
 <li><a href="https://www.youtube.com/watch?v=EaGxQSapzX0">Lian Li O11D EVO XL build</a>. This exact case. Worth watching twice, once for routing and once for mounting points.</li>
 <li><a href="https://www.youtube.com/watch?v=2mr_38vOd9M&amp;t=12s">ASUS ProArt X870E-Creator walkthrough</a>. This exact motherboard.</li>
 </ul>
-<p><strong>Background on the parts that surprised me</strong></p>
+<p>Background on the parts that surprised me</p>
 <ul>
 <li><a href="https://www.hwcooling.net/en/uneven-resistance-and-lack-of-headroom-why-12v-2x6s-fail/">Why 12V-2x6 connectors fail</a>. The connector revision, and why full seating matters.</li>
 <li><a href="https://gamersnexus.net/gpus/12vhpwr-dumpster-fire-investigation-contradicting-specs-corner-cutting">12VHPWR investigation</a>. The longer version of the same story.</li>
 <li><a href="https://graphicscardhub.com/pcie-gen5-riser-cable/">Choosing a PCIe 5.0 riser</a>. What the money buys at 32 GT/s per lane, and how the cheap ones fail.</li>
 </ul>
-<p><strong>The two parts worth reading up on before you buy</strong></p>
+<p>The two parts worth reading up on before you buy</p>
 <ul>
 <li><a href="https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html">AMD Ryzen 9 9950X specifications</a>. Sixteen cores, 32 threads, and the 170W TDP that decides your cooler.</li>
 <li><a href="https://www.tomshardware.com/pc-components/power-supplies/msi-meg-ai1600t-pcie5-titanium-power-supply-review">MSI MEG Ai1600T PCIE5 review</a>. An independent test of the supply, rather than the manufacturer&rsquo;s own page.</li>
